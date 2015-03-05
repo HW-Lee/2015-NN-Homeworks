@@ -23,6 +23,8 @@ y = X(:, end)*2-1;
 X(:, end) = [];
 
 clsfier = Hw1PerceptronClassifier.train(X, y);
-display( sum( y == clsfier.predict(X) ) / length(y) );
+y_predicted = clsfier.predict(X);
+accuracy = sum( y == y_predicted );
+display( accuracy / length(y) );
 display(clsfier.w);
 display(clsfier.b);
