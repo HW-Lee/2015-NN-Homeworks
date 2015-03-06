@@ -4,7 +4,7 @@ import Hw1PerceptronClassifier
 
 load Hw1data.mat
 X = [class0; class1];
-y = [ones(length(class0), 1); -ones(length(class1), 1)];
+y = [-ones(length(class0), 1); ones(length(class1), 1)];
 clear class0 class1;
 
 tic;
@@ -16,13 +16,16 @@ empErr = empErr / length(y);
 display(empErr);
 
 NIter = size(clsfier.W_history, 2)-1;
+
 for ii = 1:5
     subplot(5, 1, ii);
     plot(0:NIter , clsfier.W_history(ii, :));
     if ii < 5
         xlabel(['w_' num2str(ii)]);
+        title(['w_' num2str(ii) ' final = ' num2str( clsfier.w(ii) )]);
     else
         xlabel('b');
+        title(['b final = ' num2str( clsfier.b )]);
     end
 end
 
@@ -32,7 +35,7 @@ for ii = 1:Ntest
     Hw1_LinBinPerc_DataGen;
     load Hw1data.mat
     X = [class0; class1];
-    y = [ones(length(class0), 1); -ones(length(class1), 1)];
+    y = [-ones(length(class0), 1); ones(length(class1), 1)];
     clear class0 class1;
     y_predicted = clsfier.predict(X);
     accuracyArr(ii) = sum( y == y_predicted )/length(y);
