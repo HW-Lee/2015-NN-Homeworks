@@ -4,7 +4,7 @@
 % Yi-Wen Liu
 
 % Below is the data generator
-clear; close all;
+% clear; close all;
 
 % DestDir = '/Users/jacobliu/Desktop/NN/';
 DestDir = './';
@@ -30,3 +30,4 @@ ind = randperm(N/2);
 class1 = class1(ind,:);
 
 save([DestDir 'Hw1data'], 'class0','class1'); 
+clear DestDir w M N data z y class0 ind class1;
