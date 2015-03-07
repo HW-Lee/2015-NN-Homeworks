@@ -24,8 +24,8 @@
 	* <b>Step3</b>
 
 ## Results
-[<img width="100%" src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png"/>](#DistributionDialog "Distribution-diagram")
-[<img width="64" src="http://j-h-a.github.io/go-pro-mounts/thumbscrew_long.png"/>](#ThumbScrewLong "Thumb-screw (long)")
+[<img width="200" src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png"/>](#DistributionDialog "Distribution-diagram")
+
 ![](./res/part1_parametrogram_init0.png)
 ![](./res/part1_performance.png)
 ![](./res/part2_parametrogram1_init0.png)
