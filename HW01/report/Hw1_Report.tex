@@ -1,0 +1,58 @@
+%!TEX encoding = UTF-8 Unicode
+\documentclass[12pt]{article} 
+\usepackage[left=0.75in,top=0.7in,right=0.75in,bottom=0.3in]{geometry} % Document margins
+\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\begin{CJK}{UTF8}{bsmi}
+\title{\textbf{Homework1 / Linear Binary Perceptron}}
+\author{\textbf{李豪韋 (HW-Lee) ID 103061527}}
+\date{}
+
+\begin{document}
+\vspace*{-60pt}
+    {\let\newpage\relax\maketitle}
+
+\section*{Overview}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\vspace{5pt}
+
+The homework consists of two parts: 1) Implement a perceptron which is able to tell data with positive labels from those with negative labels; and 2) Calculate the weights, which can be simply regarded as correlation, between students features (namely gender, activities, tests, and participation) in a course and final consequences (pass or fail) of them. \\
+
+In the first part, a matlab script Hw1\_LinBinPerc\_DataGen.m is needed to generate a random set of data with binary labels so that the data are known to be linearly separable. Then, the task is to pretend that the linear weight are unknown and train the perceptron with some algorithm iteratively. \\
+
+In the second part, there is a given excel file NN\_RealDataForHW1.csv that contains grade information from a real NTHU course (obfuscated to hide the identity of students). Each column contains the grades for an activity, and the task is to discover how these columns were linearly combined to determine whether a student has passed (P) or failed (F). The code developed for the first part can be used in this part, and the final weights and bias in the trained perceptron should be shown in the report. \\
+
+Note: For the second part, the following functions may be useful: csvread(), importdata(). \\
+
+\section*{Implementation}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\vspace{5pt}
+
+
+\section*{Results}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\vspace{5pt}
+
+
+\section*{Discussion}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+\begin{enumerate}
+	\item In the first part, does the final weight vector approximate the weights used for data generation (up to a scaling factor)?
+	\item Does the perceptron successfully (that is, with 100\% accuracy) separate the data into two classes?
+	\item If not, does it help to repeatedly feed the whole set of data to your algorithm? (such as done in the for loop line 25)
+	\item In the starter code Hw1\_starter.m, line16-17, the data are randomly sorted. What is the purpose of this, or does it matter?
+	\item In the second part, does the gender information help predicting whether a student passed or failed?
+\end{enumerate}
+
+\end{CJK}
+\end{document}
