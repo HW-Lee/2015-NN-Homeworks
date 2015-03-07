@@ -30,7 +30,7 @@
 ![Parametrogram1](https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part2_parametrogram1_init0.png)
 ![Parametrogram2](https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part2_parametrogram2_init0.png)
 ![Parametrogram3](https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part2_parametrogram3_init0.png)
-![HeHe](http://m103.nthu.edu.tw/~s103061527/web/profile.jpg)
+![Test](http://j-h-a.github.io/go-pro-mounts/thumbscrew_long.png)
 
 ## Discussion
 1. In the first part, does the final weight vector approximate the weights used for data generation (up to a scaling factor)?
