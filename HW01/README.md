@@ -24,7 +24,7 @@
 	* <b>Step3</b>
 
 ## Results
-[<img width="100%" src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png"/>]()
+[<img width="100%" src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png"/>](#DistributionDialog)
 [<img width="64" src="http://j-h-a.github.io/go-pro-mounts/thumbscrew_long.png"/>](#ThumbScrewLong "Thumb-screw (long)")
 ![](./res/part1_parametrogram_init0.png)
 ![](./res/part1_performance.png)
