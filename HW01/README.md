@@ -24,8 +24,8 @@
 	* <b>Step3</b>
 
 ## Results
-[<img src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png"/>]()
-[<img src="http://icons.iconarchive.com/icons/mazenl77/I-like-buttons-3a/512/Cute-Ball-Go-icon.png"/>]()
+[<img width="100%" src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png"/>]()
+[<img width="64" src="http://j-h-a.github.io/go-pro-mounts/thumbscrew_long.png"/>]()
 ![](./res/part1_parametrogram_init0.png)
 ![](./res/part1_performance.png)
 ![](./res/part2_parametrogram1_init0.png)
