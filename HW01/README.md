@@ -34,6 +34,6 @@
 ## Discussion
 1. In the first part, does the final weight vector approximate the weights used for data generation (up to a scaling factor)?
 2. Does the perceptron successfully (that is, with 100% accuracy) separate the data into two classes?
-3. If not, does it help to repeatedly feed the whole set of data to your algorithm? such as done in the for loop line 25)
+3. If not, does it help to repeatedly feed the whole set of data to your algorithm? (such as done in the for loop line 25)
 4. In the starter code <code>Hw1_starter.m</code>, line16-17, the data are randomly sorted. What is the purpose of this, or does it matter?
 5. In the second part, does the gender information help predicting whether a student passed or failed?
