@@ -24,12 +24,12 @@
 	* <b>Step3</b>
 
 ## Results
-<img src="./res/part1_distributionDiag.png">
-<img src="./res/part1_parametrogram_init0.png">
-<img src="./res/part1_performance.png">
-<img src="./res/part2_parametrogram1_init0.png">
-<img src="./res/part2_parametrogram2_init0.png">
-<img src="./res/part2_parametrogram3_init0.png">
+<img src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png">
+<img src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_parametrogram_init0.png">
+<img src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_performance.png">
+<img src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part2_parametrogram1_init0.png">
+<img src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part2_parametrogram2_init0.png">
+<img src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part2_parametrogram3_init0.png">
 
 ## Discussion
 1. In the first part, does the final weight vector approximate the weights used for data generation (up to a scaling factor)?
