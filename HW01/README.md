@@ -24,7 +24,7 @@
 	* <b>Step3</b>
 
 ## Results
-![](https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png)
+![<img src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png">]()
 ![](./res/part1_parametrogram_init0.png)
 ![](./res/part1_performance.png)
 ![](./res/part2_parametrogram1_init0.png)
