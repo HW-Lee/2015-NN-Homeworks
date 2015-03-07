@@ -15,19 +15,7 @@ empErr = sum( y ~= y_predicted );
 empErr = empErr / length(y);
 display(empErr);
 
-NIter = size(clsfier.W_history, 2)-1;
-
-for ii = 1:5
-    subplot(5, 1, ii);
-    plot(0:NIter , clsfier.W_history(ii, :));
-    if ii < 5
-        xlabel(['w_' num2str(ii)]);
-        title(['w_' num2str(ii) ' final = ' num2str( clsfier.w(ii) )]);
-    else
-        xlabel('b');
-        title(['b final = ' num2str( clsfier.b )]);
-    end
-end
+clsfier.visualInfo();
 
 Ntest = 20;
 accuracyArr = zeros(Ntest, 1);

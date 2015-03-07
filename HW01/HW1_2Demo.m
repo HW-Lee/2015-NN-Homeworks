@@ -28,3 +28,10 @@ accuracy = sum( y == y_predicted );
 display( accuracy / length(y) );
 display(clsfier.w);
 display(clsfier.b);
+
+% figure(1)
+% clsfier.visualInfo(1, 4);
+% figure(2)
+% clsfier.visualInfo(5, 8);
+% figure(3)
+% clsfier.visualInfo(9, 11);
