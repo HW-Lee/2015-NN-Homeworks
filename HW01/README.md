@@ -24,7 +24,9 @@
 	* <b>Initialize parameters of the perceptron classifier</b>
 <p>In default, the parameters, namely <code>w</code> and <code>b</code>, will be zero vector and zero respectively.</p>
 	* <b>Iterate algorithm with N times</b>
+<p>
 <img width="70%" src="https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/algorithm.png"/>
+</p>
 
 ## Results
 ![Distribution diagram](https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png)
