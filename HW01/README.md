@@ -11,17 +11,19 @@
 
 ## Implementation
 1. <b>Functions</b>
-	* <b>Function1</b>
-<p>func1 descript</p>
-	* <b>Function2</b>
-<p>func2 descript</p> 
-	* <b>Function3</b>
-<p>func3 descript</p>
+	* <b>Hw1PerceptronClassifier.train(X, y)</b>
+<p>Return a reference of a perceptron classifier trained with training set <code>X</code> and corresponded ground truths <code>y</code>.</p>
+	* <b>Hw1PerceptronClassifier.predict(X)</b>
+<p>Return a binary vector contains elements with valu of either -1 or 1, which refers to predicted results with unknown testing set <code>X</code>.</p>
+	* <b>Hw1PerceptronClassifier.visualInfo()</b>
+<p>Show the property of a classifier in a visual way, including parameters <code>w</code>, <code>b</code>, and all <code>w's</code> and <code>b's</code> during training process.</p>
 
 2. <b>Process</b>
-	* <b>Step1</b>
-	* <b>Step2</b>
-	* <b>Step3</b>
+	* <b>Generate training set <code>X</code> and corresponded ground truths <code>y</code></b>
+<p>Combine two matrices <code>class0</code> and <code>class1</code> into a matrix vertically, and generate a vector which contains the 'class label' indicating which class each row instance belongs to. (-1 refers to <code>class0</code> and 1 to <code>class1</code>)</p>
+	* <b>Initialize parameters of the perceptron classifier</b>
+<p>In default, the parameters, namely <code>w</code> and <code>b</code>, will be zero vector and zero respectively.</p>
+	* <b>Iterate algorithm with N times</b>
 
 ## Results
 ![Distribution diagram](https://raw.githubusercontent.com/HW-Lee/2015-NN-Homeworks/master/HW01/res/part1_distributionDiag.png)
