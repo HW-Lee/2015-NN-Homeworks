@@ -14,7 +14,7 @@
 	* <b>Hw1PerceptronClassifier.train(X, y)</b>
 <p>Return a reference of a perceptron classifier trained with training set <code>X</code> and corresponded ground truths <code>y</code>.</p>
 	* <b>Hw1PerceptronClassifier.predict(X)</b>
-<p>Return a binary vector contains elements with valu of either -1 or 1, which refers to predicted results with unknown testing set <code>X</code>.</p>
+<p>Return a binary vector contains elements with value of either -1 or 1, which refers to predicted results with unknown testing set <code>X</code>.</p>
 	* <b>Hw1PerceptronClassifier.visualInfo()</b>
 <p>Show the property of a classifier in a visual way, including parameters <code>w</code>, <code>b</code>, and all <code>w's</code> and <code>b's</code> during training process.</p>
 
