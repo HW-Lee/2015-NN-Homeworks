@@ -18,7 +18,7 @@ w_ls = pinv(inp'*inp)*(inp'*des); % Least square solution
 
 %% Stochastic gradient descent
 L = 3000; % number of steps <---- TINKER AND TWEAK HERE PLEASE
-eta = ???; % the fixed learning rate <------ TINKER AND TWEAK HERE PLEASE
+eta = 3e-3; % the fixed learning rate <------ TINKER AND TWEAK HERE PLEASE
 
 %%% Generate more data using the 2nd-order statistics (optional)
 sw.fakedata = 1;
@@ -45,11 +45,11 @@ for ii = 1:L
         d = des(s);
     end
     % filtering
-    y = ...; %%% <--- FILL IN DETAILS HERE
+    y = w'*x; %%% <--- FILL IN DETAILS HERE
     err = d - y;
     % update
-    w = w + ...; %%% <--- FILL IN DETAILS HERE
-    b = b + ...; %%% <--- FILL IN DETAILS HERE
+    w = w + eta*err*x/norm(x); %%% <--- FILL IN DETAILS HERE
+    b = b + eta*err; %%% <--- FILL IN DETAILS HERE
     % save for performance analysis
     e_all(ii) = err;
     w_all(:,ii) = w;
