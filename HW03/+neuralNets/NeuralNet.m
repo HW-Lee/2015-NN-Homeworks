@@ -4,22 +4,63 @@ classdef NeuralNet < handle
     %
     %   Constructors:
     %       net = NeuralNet({SIZE})
-    %       net = NeuralNet()
+    %           Create a neural net with specific layers.
     %
-    %       void NeuralNet.push_back_layer({LAYER})
-    %       void NeuralNet.push_back_input_port({INPUT_NODE})
-    %       void NeuralNet.push_back_output_port({OUTPUT_NODE})
-    %       double NeuralNet.getOutput({IDX})
-    %       Vec(n) NeuralNet.getOutputs()
-    %       double NeuralNet.getInput({IDX})
-    %       Vec(n) NeuralNet.getInputs()
+    %       net = NeuralNet() \\ which is equivalent to NeuralNet(0)
+    %
+    %   Setters:
     %       void NeuralNet.setInputAtIdx({IDX}, {VALUE})
+    %           Set the {IDX}^th input with {VALUE}.
+    %           {VALUE} : double
+    %
     %       void NeuralNet.setInputs({VALUES})
-    %       int NeuralNet.getLayersCount()
-    %       NeuralLayer NeuralNet.getLayerAt({IDX})
-    %       void NeuralNet.initWeights()
-    %       void NeuralNet.sendMessage()
+    %           Set inputs with {VALUES}.
+    %           {VALUES} : array with length as many as # of inputs
+    %
     %       void NeuralNet.setTrainingSystem({TRAINING_SYSTEM})
+    %           Set the training system. (see more detailed below)
+    %
+    %   Getters:
+    %       double NeuralNet.getOutput({IDX})
+    %           Get the value of the {IDX}^th output node.
+    %
+    %       double NeuralNet.getInput({IDX})
+    %           Get the value of the {IDX}^th input node.
+    %
+    %       Vec(n) NeuralNet.getOutputs()
+    %           Get all values of output nodes.
+    %           n: # of output nodes
+    %
+    %       Vec(n) NeuralNet.getInputs()
+    %           Get all values of input nodes.
+    %           n: # of input nodes
+    %
+    %       int NeuralNet.getLayersCount()
+    %           Get # of layers in the net.
+    %
+    %       NeuralLayer NeuralNet.getLayerAt({IDX})
+    %           Get the {IDX}^th layer in the net.
+    %
+    %   Others:
+    %       void NeuralNet.push_back_layer({LAYER})
+    %           Push a layer at the end of the net.
+    %           {LAYER} : NeuralLayer
+    %
+    %       void NeuralNet.push_back_input_port({INPUT_NODE})
+    %           Push a node at the and of inputs of the net.
+    %           {INPUT_NODE} : Node
+    %
+    %       void NeuralNet.push_back_output_port({OUTPUT_NODE})
+    %           Push a node at the end of outputs of the net.
+    %           {OUTPUT_NODE} : Node
+    %
+    %       void NeuralNet.initWeights()
+    %           Automatically initiate the weights of all neurons in the
+    %           net. (see Neuron.initWeights())
+    %
+    %       void NeuralNet.sendMessage()
+    %           After setting values of inputs, this function will generate
+    %           the outputs based on the structure of the net.
     %
     %
     % **  VERY IMPORTANT IF YOU ARE TRYING TO APPLY YOUR OWN ALGORITHM  **

@@ -3,19 +3,56 @@ classdef NeuralLayer < handle
     %
     %   Constructors:
     %       layer = NeuralLayer({LAYER_IDX});
+    %           Create the {LAYER_IDX}^th layer.
+    %
     %       layer = NeuralLayer(); // which is equivalent to NeuralLayer(1)
     %
-    %       void NeuralLayer.push_back({NEURON})
-    %       void NeuralLayer.connect_to_next_layer({LAYER})
-    %       void NeuralLayer.clear()
+    %   Getters:
     %       Neuron NeuralLayer.getNeuronAt({IDX})
+    %           Get the {IDX}^th neuron of the layer.
+    %
     %       int NeuralLayer.getNeuronsCount()
+    %           Get # of neurons in the layer.
+    %
     %       int NeuralLayer.getLayerIndex()
+    %           Get the index of the layer.
+    %
     %       Vec(n) NeuralLayer.getOutputs()
+    %           Get all output values of the layer in the form of MATLAB
+    %           matrix.
+    %           n: # of neurons
+    %
     %       Vec(n) NeuralLayer.getInputs()
+    %           Get all input values of the layer in the form of MATLAB
+    %           matrix, Nots that it is exactly the outputs of the previous
+    %           layer.
+    %           n: # of inputs of a neuron in the layer
+    %
     %       Mat(n, m) NeuralLayer.getWeights()
+    %           Get all weights of the layer in the form of MATLAB matrix.
+    %           (i.e. Weights(i, j) stands for the i^th weight of the j^th
+    %           neuron in the layer.
+    %           n: # of inputs of a neuron in the layer
+    %           m: # of neurons in the layer
+    %
+    %   Others:
+    %       void NeuralLayer.push_back({NEURON})
+    %           Push a neuron at the end of the layer.
+    %           {NEURON} : Neuron
+    %
+    %       void NeuralLayer.connect_to_next_layer({LAYER})
+    %           Connect to another layer. (fully-connected)
+    %           {LAYER} : NeuralLayer
+    %
+    %       void NeuralLayer.clear()
+    %           Clear all neurons in the layer.
+    %
     %       void NeuralLayer.initWeights()
+    %           Automatically initiate the weights of all neurons in the
+    %           layer. (see Neuron.initWeights())
+    %
     %       void NeuralLayer.sendMessage()
+    %           Call Neuron.sendMessage() with all neurons in the layer.
     
     properties
         neurons; % Cell<Neuron>
