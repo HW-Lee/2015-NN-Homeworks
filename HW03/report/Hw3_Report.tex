@@ -1,0 +1,67 @@
+%!TEX encoding = UTF-8 Unicode
+\documentclass[12pt]{article} 
+\usepackage[left=0.75in,top=0.7in,right=0.75in,bottom=0.3in]{geometry} % Document margins
+\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\makeatletter
+\renewenvironment{itemize}
+{\list{$\bullet$}{\leftmargin\z@ \labelwidth\z@ \itemindent-\leftmargin
+\let\makelabel\descriptionlabel}}
+{\endlist}
+\makeatother
+
+\begin{CJK}{UTF8}{bsmi}
+\title{\textbf{Homework / }}
+\author{\textbf{李豪韋 (HW-Lee) ID 103061527}}
+\date{}
+
+\begin{document}
+\vspace*{-60pt}
+    {\let\newpage\relax\maketitle}
+
+\section*{Overview}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\vspace{5pt}
+
+\section*{Implementation}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+\begin{enumerate}
+	\item {\bf Functions}
+	\begin{itemize}
+		\item {\bf Func1} \\ \\
+			Description1 \\
+		\item {\bf Func2} \\ \\
+			Description2 \\
+		\item {\bf Func3} \\ \\
+			Description3
+	\end{itemize}
+	
+	\item {\bf Process}
+	\begin{itemize}
+		\item {\bf Process1} \\ \\
+			Description1 \\
+		\item {\bf Process2} \\ \\
+			Description2 \\
+		\item {\bf Process3}
+			Description3
+	\end{itemize}
+\end{enumerate}
+
+\section*{Results}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+\section*{Discussion}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+\end{CJK}
+\end{document}
