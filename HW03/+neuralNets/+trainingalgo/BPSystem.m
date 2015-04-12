@@ -1,5 +1,5 @@
 classdef BPSystem < handle
-    %neuralNets.BPSYSTEM A training system using Back-propagation algorithm.
+    %neuralNets.trainingalgo.BPSYSTEM A training system using Back-propagation algorithm.
     %
     %   Constructors:
     %       system = BPSystem({ETA})
