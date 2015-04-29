@@ -1,0 +1,143 @@
+%!TEX encoding = UTF-8 Unicode
+\documentclass[12pt]{article} 
+\usepackage[left=0.75in,top=0.7in,right=0.75in,bottom=0.3in]{geometry} % Document margins
+\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{sidecap}
+\usepackage{makecell}
+
+\makeatletter
+\renewenvironment{itemize}
+{\list{$\bullet$}{\leftmargin\z@ \labelwidth\z@ \itemindent-\leftmargin
+\let\makelabel\descriptionlabel}}
+{\endlist}
+\makeatother
+
+\begin{CJK}{UTF8}{bsmi}
+\title{\textbf{Homework4 / Handwritten Digits Recognition}}
+\author{\textbf{李豪韋 (HW-Lee) ID 103061527}}
+\date{}
+
+\begin{document}
+\vspace*{-60pt}
+    {\let\newpage\relax\maketitle}
+
+\section*{Overview}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+\vspace{5pt}
+
+Neural nets can theoretically learn any function, so we can also utilize them to do classification tasks. In recent years, automatic recognition systems have been getting more important and more widely used. Therefore, we try to implement a system that is able to recognize hand-written digits. Obviously, it is a classification problem, all things we have to do are 1) separating instances which belong to different classes as much as possible, 2) aggregating instances which belong to the same class as close as possible, 3) suppressing the confidence of outputs corresponding to wrong classes, and 4) lifting the confidence of the output corresponding to the right class. In this project, the task has been implemented and the average accuracy can achieve close to 90$\%$. The more detailed information of the code is publicly available on \href{https://github.com/HW-Lee/2015-NN-Homeworks/tree/master/HW04}{$\mathsf{https://github.com/HW}$-$\mathsf{Lee/2015}$-$\mathsf{NN}$-$\mathsf{Homeworks/tree/master/HW04}$}.
+
+\section*{Implementation}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+\begin{enumerate}
+	\item {\bf Net Structure}
+	\begin{SCfigure}[][h]
+		\hspace*{-2em}
+		\includegraphics[scale=.65]{../res/netStruct.png}
+		\caption{The structure of net. It simply consists of 10 neurons without any hidden unit, which acts like a linear filter, and the image data will be reshaped from 2D to 1D then all pixels will be regarded as an input port. However, the only thing different from the linear filter implemented in Hw2 is that the linear outputs are cascaded to the logistic function that maps any real value into a value ranged from 0 to 1, in order to make the output a measure of 'confidence'. Finally, the prediction is followed by the rule of choosing the class which turns out the highest confidence.}
+	\end{SCfigure}
+	
+	\newpage
+	\item {\bf Process}
+	\begin{itemize}
+		\item {\bf Weights Initialization}: make an initial guess.
+		\item {\bf Randomly Feeding Instances}: randomly choose an instance with its ground truth.
+		\item {\bf Stochastic Gradient Descent}: Use SGD to obtain a good set of weights.
+	\end{itemize}
+\end{enumerate}
+
+\section*{Results}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+\begin{enumerate}
+	\item {\bf Confusion matrix with cross-validation (average accuracy is 0.877)}
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\diaghead{\theadfont Diag ColumnmnHead II}{truth}{result} 
+		& '0' & '1' & '2' & '3' & '4' & '5' & '6' & '7' & '8' & '9' \\
+		\hline
+		'0' & {\bf 0.99} & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & 0.00 \\ 
+		\hline
+		'1' & 0.00 & {\bf 0.94} & 0.02 & 0.00 & 0.00 & 0.02 & 0.00 & 0.00 & 0.02 & 0.00 \\ 
+		\hline
+		'2' & 0.01 & 0.01 & {\bf 0.87} & 0.00 & 0.01 & 0.00 & 0.01 & 0.03 & 0.05 & 0.01 \\ 
+		\hline
+		'3' & 0.01 & 0.00 & 0.04 & {\bf 0.84} & 0.01 & 0.04 & 0.02 & 0.03 & 0.01 & 0.00 \\ 
+		\hline
+		'4' & 0.00 & 0.01 & 0.03 & 0.01 & {\bf 0.85} & 0.01 & 0.02 & 0.03 & 0.02 & 0.02 \\ 
+		\hline
+		'5' & 0.05 & 0.00 & 0.00 & 0.07 & 0.03 & {\bf 0.79} & 0.01 & 0.00 & 0.04 & 0.01 \\ 
+		\hline
+		'6' & 0.00 & 0.00 & 0.00 & 0.01 & 0.01 & 0.03 & {\bf 0.94} & 0.00 & 0.01 & 0.00 \\ 
+		\hline
+		'7' & 0.01 & 0.01 & 0.01 & 0.00 & 0.01 & 0.00 & 0.00 & {\bf 0.93} & 0.00 & 0.03 \\ 
+		\hline
+		'8' & 0.01 & 0.03 & 0.01 & 0.04 & 0.01 & 0.00 & 0.01 & 0.02 & {\bf 0.85} & 0.02 \\ 
+		\hline
+		'9' & 0.04 & 0.02 & 0.01 & 0.02 & 0.06 & 0.02 & 0.01 & 0.04 & 0.01 & {\bf 0.77} \\ 
+		\hline
+	\end{tabular}
+	\end{center}
+	
+	\item {\bf Confusion matrix with empirical data (average accuracy is 0.9124)}
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\diaghead{\theadfont Diag ColumnmnHead II}{truth}{result} 
+		& '0' & '1' & '2' & '3' & '4' & '5' & '6' & '7' & '8' & '9' \\
+		\hline
+		'0' & {\bf 0.98} & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
+ 		\hline 
+		'1' & 0.00 & {\bf 0.96} & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 & 0.00 & 0.01 & 0.00 \\ 
+ 		\hline 
+		'2' & 0.01 & 0.01 & {\bf 0.87} & 0.01 & 0.02 & 0.00 & 0.02 & 0.02 & 0.02 & 0.01 \\ 
+ 		\hline 
+		'3' & 0.00 & 0.01 & 0.03 & {\bf 0.87} & 0.00 & 0.03 & 0.01 & 0.01 & 0.01 & 0.02 \\ 
+ 		\hline 
+		'4' & 0.00 & 0.01 & 0.00 & 0.00 & {\bf 0.92} & 0.00 & 0.01 & 0.00 & 0.00 & 0.04 \\ 
+ 		\hline 
+		'5' & 0.02 & 0.01 & 0.01 & 0.03 & 0.01 & {\bf 0.86} & 0.02 & 0.00 & 0.03 & 0.01 \\ 
+ 		\hline 
+		'6' & 0.01 & 0.00 & 0.00 & 0.00 & 0.00 & 0.01 & {\bf 0.97} & 0.00 & 0.00 & 0.00 \\ 
+ 		\hline 
+		'7' & 0.01 & 0.01 & 0.01 & 0.00 & 0.02 & 0.00 & 0.00 & {\bf 0.93} & 0.00 & 0.02 \\ 
+ 		\hline 
+		'8' & 0.01 & 0.01 & 0.02 & 0.02 & 0.01 & 0.02 & 0.02 & 0.01 & {\bf 0.88} & 0.01 \\ 
+ 		\hline 
+		'9' & 0.02 & 0.00 & 0.01 & 0.02 & 0.02 & 0.01 & 0.00 & 0.04 & 0.00 & {\bf 0.89 } \\ 
+ 		\hline 
+	\end{tabular}
+	\end{center}
+	
+	\newpage
+	\item {\bf Average response with different classes}
+	\begin{figure}[ht]
+		\includegraphics[scale=.5]{../res/resp0-4.png}
+		\vspace*{-2em}
+	\end{figure}
+	\begin{figure}[ht]
+		\vspace*{-2em}
+		\includegraphics[scale=.5]{../res/resp5-9.png}
+		\caption{the response evaluated with 100 randomly sampled images of each class}
+		\vspace*{-2em}
+	\end{figure}
+\end{enumerate}
+
+
+\newpage
+\section*{Discussion}
+\vspace{-20pt}
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+\end{CJK}
+\end{document}
