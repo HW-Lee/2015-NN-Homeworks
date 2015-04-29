@@ -139,5 +139,23 @@ Neural nets can theoretically learn any function, so we can also utilize them to
 \vspace{-20pt}
 \noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
 
+\begin{enumerate}
+	\item What is a good initialization strategy?
+	\begin{flushleft}
+		Actually, any initialization method will not affect the performance too much because the structure of my system is not complex, most of issues concerned in back-propagation applied to multi-layer net are not critical in gradient descent of linear filters (e.g. no zero-initialization, random variation). However, an appropriate initial guess will decrease lots of computation time for learning with training sets. In practice, a system with better initial weights gets converged after 30,000 iterations while that with randomly initialized weights gets converged after more than 100,000 iterations. Then, what is a good set of initial weights? I use the training strategy described in the homework description sheet, namely simply averaging all training data of each class, I use it as the initial weights. It is a good initial guess such that the system can get converged only with 30,000 iterations!
+	\end{flushleft}
+	\item How to define input space?
+	\begin{flushleft}
+		As the sheet described, every image only contains raw data with value either 0 or 1. If we only apply it as the input space directly, the offset(0) can not be used as a 'penalty' while training. (because the value 0 is constant with any arbitrary weight) For enabling the sensitivity of offset, the data are subtracted by 0.5 for the purpose of making data ranged in $\pm 0.5$. Hence, the offset is as sensitive as the onset and the input space is balanced. (0-centred range)
+	\end{flushleft}
+	\item Something interesting of final weights.
+	\begin{figure}[ht]
+		\includegraphics[scale=.5]{../res/weights2D.png}
+		\vspace*{-1em}
+		\caption{Final weights reshaped to 2D (with the same structure as that of images) of each class. There comes some intuitive and interesting conclusions: 1) The final weights get converged to the results which are 'visually similar' to the appearance of digits we think. 2) The brighter parts, which refers to relatively smaller values, in each class are also features that people use to recognize a digit. (e.g. we expect that there is a 'hole' at the center of '0', and there are two vertically arranged holes in '8'.)}
+		\vspace*{-5em}
+	\end{figure}
+\end{enumerate}
+
 \end{CJK}
 \end{document}
