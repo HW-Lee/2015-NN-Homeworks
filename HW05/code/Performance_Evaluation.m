@@ -1,5 +1,8 @@
 clear all; close all;
 
+path = '../../HW04/code/Hw4_LinFilt_perfect.mat';
+load(path);
+
 dataDir = '../data';
 
 if exist('./imgData.mat', 'file') == 0
@@ -26,10 +29,14 @@ load imgData.mat;
 
 end
 
-path = '../../HW04/code/Hw4_LinFilt_perfect.mat';
-load(path);
-
 % Performance Evaluation
+falsePrediction = cell(10, 10);
+for ii = 1:10
+    for jj = 1:10
+        falsePrediction{ii, jj} = zeros(size(imgData{1}{1}));
+    end
+end
+
 perfVec = zeros(10);
 confusion = zeros(10);
 cnt = 0;
@@ -44,6 +51,9 @@ for num = 0:9
         [~, idx] = max(outputs);
         perfVec(:, num+1) = perfVec(:, num+1) + outputs;
         confusion(num+1, idx) = confusion(num+1, idx) + 1;
+        if idx ~= num+1
+            falsePrediction{num+1, idx} = falsePrediction{num+1, idx} + data;
+        end
         cnt = cnt + 1;
     end
     fprintf('Evaluate performance %d %%...\n', 10*(num+1));
@@ -79,6 +89,14 @@ axis square;
 
 clear str fig_handle axis_handle ans;
 
+for ii = 1:10
+    for jj = 1:10
+        if ii ~= jj && confusion(ii, jj) > 0
+            falsePrediction{ii, jj} = falsePrediction{ii, jj} / (confusion(ii, jj)*200);
+        end
+    end
+end
+
 figure();
 for num = 0:9
     subplot(3, 4, num+1);
@@ -91,12 +109,27 @@ for num = 0:9
     axis square
 end
 
+for num = 0:9
+    figure();
+    for ii = 1:10
+        if ii ~= num+1
+            subplot(1, 10, ii);
+            imagesc(falsePrediction{num+1, ii});
+            set(gca, 'XTickLabel', []);
+            set(gca, 'YTickLabel', []);
+            xlabel(['false prediction to ' '''' num2str(ii-1) '''']);
+            colormap(gray(256));
+            axis square;
+        end
+    end
+end
+
 for ii = 1:10
     fprintf('''%d'' & ', ii-1);
     for jj = 1:10
         if ii == jj fprintf('{\\bf '); end
-        if ii == jj fprintf('%.2f', confusion(ii, jj));
-        else fprintf('%.2f ', confusion(ii, jj)); end
+        if ii == jj fprintf('%.3f', confusion(ii, jj));
+        else fprintf('%.3f ', confusion(ii, jj)); end
         if ii == jj fprintf('} '); end
         if jj == 10 fprintf('\\\\ \n \\hline \n');
         else fprintf('& '); end
